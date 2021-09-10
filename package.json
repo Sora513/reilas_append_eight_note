@@ -1,0 +1,19 @@
+{
+  "name": "reilas_append_eight_note",
+  "version": "1.0.0",
+  "description": "Tokai kinensai 2021",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sora513/reilas_append_eight_note.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sora513/reilas_append_eight_note/issues"
+  },
+  "homepage": "https://github.com/Sora513/reilas_append_eight_note#readme"
+}
