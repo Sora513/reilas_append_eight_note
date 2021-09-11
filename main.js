@@ -67,6 +67,7 @@ fs.readdir(path + "/source").then((path) => {
                                 var horizontal_move = slide_distance
                                 horizontal_move.divide(counter + 1, 1)
                                 horizontal_calc.add(horizontal_move.multiply(j, 1))
+                                horizontal_calc.add(slide_horizontal_head)
                                 hjnt.horizontalPosition.numerator = horizontal_calc.num
                                 hjnt.horizontalPosition.denominator = horizontal_calc.den
                                 if (Math.floor(head_note.horizontalSize + (slide_size_change / (slide_judge_note_timing_array.length + 1) * j)) < 0) {
