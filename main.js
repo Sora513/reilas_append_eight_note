@@ -62,12 +62,13 @@ fs.readdir(path + "/source").then((path) => {
 
                                 hjnt.editorProps.time = head_note.editorProps.time + duration / (slide_judge_note_timing_array.length + 1) * j
                                 hjnt.horizontalSize = Math.floor(head_note.horizontalSize + (slide_size_change / (slide_judge_note_timing_array.length + 1) * j))
-                                var horizontal_calc = slide_horizontal_head
+                                var horizontal_calc = new Fraction(slide_horizontal_head.num,slide_horizontal_head.den)
 
-                                var horizontal_move = slide_distance
+                                var horizontal_move = new Fraction(slide_distance.num,slide_distance.den)
                                 horizontal_move.divide(counter + 1, 1)
                                 horizontal_calc.add(horizontal_move.multiply(j, 1))
                                 horizontal_calc.add(slide_horizontal_head)
+                                console.log(slide_distance,horizontal_move)
                                 hjnt.horizontalPosition.numerator = horizontal_calc.num
                                 hjnt.horizontalPosition.denominator = horizontal_calc.den
                                 if (Math.floor(head_note.horizontalSize + (slide_size_change / (slide_judge_note_timing_array.length + 1) * j)) < 0) {
