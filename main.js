@@ -1,7 +1,6 @@
 const fs = require("fs").promises;;
 const crypto = require('crypto')
 var flag = false
-var counter = 0;
 const path = process.cwd();
 fs.readdir(path + "/source").then((path) => {
     path.forEach((filepath) => {
@@ -50,6 +49,7 @@ fs.readdir(path + "/source").then((path) => {
                     var slide_size_tail = tail_note.horizontalSize
                     var slide_size_change = tail_note.horizontalSize - head_note.horizontalSize
 
+                    var counter = 0;
                     // console.log(slide_distance)
                     // console.log(slide_size_change)
                     while (flag === false) {
@@ -66,11 +66,16 @@ fs.readdir(path + "/source").then((path) => {
 
                                 var horizontal_move = new Fraction(slide_distance.num,slide_distance.den)
                                 horizontal_move.divide(counter + 1, 1)
-                                horizontal_calc.add(horizontal_move.multiply(j, 1))
-                                horizontal_calc.add(slide_horizontal_head)
-                                console.log(slide_distance,horizontal_move)
+                                horizontal_move.multiply(j, 1)
+                                // console.log(horizontal_calc)
+                                horizontal_calc.add(horizontal_move)
+                                if(horizontal_calc.num/horizontal_calc.den>1){
+                                    console.log("WARN!")
+                                }
+                                
                                 hjnt.horizontalPosition.numerator = horizontal_calc.num
                                 hjnt.horizontalPosition.denominator = horizontal_calc.den
+                                // console.log(slide_horizontal_head,horizontal_move,horizontal_calc,counter)
                                 if (Math.floor(head_note.horizontalSize + (slide_size_change / (slide_judge_note_timing_array.length + 1) * j)) < 0) {
                                     console.log("Attention! :" + Math.floor(head_note.horizontalSize + (slide_size_change / (slide_judge_note_timing_array.length + 1) * j)) + " : " + head_note.horizontalSize + " " + tail_note.horizontalSize)
                                 }
